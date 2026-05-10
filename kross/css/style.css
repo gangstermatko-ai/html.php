@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Nový, futuristický font */
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    /* Ultra-svetlé, čisté pozadie */
+    background-color: #fcfcfd;
+    background-image: 
+        radial-gradient(at 10% 10%, rgba(59, 130, 246, 0.03) 0px, transparent 50%),
+        radial-gradient(at 90% 90%, rgba(168, 85, 247, 0.03) 0px, transparent 50%);
+    color: #0f172a;
+    overflow: hidden;
+}
+
+h3 {
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    color: #0f172a;
+    text-align: center;
+    position: relative;
+    animation: titleAppear 0.8s ease-out;
+}
+
+/* AI podčiarknutie */
+h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #a855f7);
+    border-radius: 2px;
+}
+
+form {
+    width: 420px;
+    padding: 50px;
+    border-radius: 16px; /* Hranatejší, technickejší look */
+    background: #ffffff;
+    /* Veľmi jemný tieň, ktorý vyzerá ako levitácia */
+    box-shadow: 0 40px 80px -20px rgba(0,0,0,0.05);
+    border: 1px solid #f1f5f9;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    animation: formAppear 1s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+/* AI dekoračný prvok */
+form::before {
+  
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-family: monospace;
+    font-size: 10px;
+    color: #cbd5e1;
+    letter-spacing: 1px;
+}
+
+input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid #e2e8f0;
+    outline: none;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #691d7a;
+    font-size: 15px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+input:focus {
+    background: #ffffff;
+    border-color: #8c3fd4; /* Fialový akcent pre AI */
+    box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1);
+}
+
+button {
+    margin-top: 15px;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    /* AI Gradient */
+    background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
+}
+
+button:hover {
+    box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0px) scale(0.98);
+}
+
+/* Nové, zložitejšie animácie */
+@keyframes titleAppear {
+    0% { opacity: 0; transform: translateY(-20px); letter-spacing: -10px; }
+    100% { opacity: 1; transform: translateY(0); letter-spacing: -2px; }
+}
+
+@keyframes formAppear {
+    0% { opacity: 0; transform: scale(0.95) translateY(30px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+
+.ikona_v_rohu {
+    position: fixed;
+    bottom: 20px;
+    right: 60px; /* Toto nastaví základnú polohu pre Facebook */
+    width: 30px;
+    height: auto;
+    z-index: 1000;
+}
+
