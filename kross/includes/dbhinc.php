@@ -7,7 +7,7 @@ $dbpassword = "";
 try {
     $pdo = new PDO($dsn, $dbusername, $dbpassword);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOExpection $e) {
+} catch (PDOException $e) {
     echo "zle pripojenie: ". $e->getMessage();   
 }
 
