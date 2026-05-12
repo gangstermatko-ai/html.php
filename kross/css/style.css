@@ -1,146 +1,124 @@
+/* 1. STIAHNUTIE PÍSMA: Zoberieme si z internetu moderný font, aby web nevyzeral ako z roku 2000. */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* Nový, futuristický font */
-    font-family: 'Space Grotesk', sans-serif;
+* {
+    margin: 0;           /* Zrušíme všetky základné medzery, aby sme mali nad všetkým kontrolu. */
+    padding: 0;          /* To isté pre vnútorné medzery. */
+    box-sizing: border-box; /* Zabezpečí, že ak povieme, že box má 400px, tak bude mať 400px aj s rámikom. */
+    font-family: 'Space Grotesk', sans-serif; /* Povieme, že úplne všetok text bude v tom novom fonte. */
 }
 
-body{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    /* Ultra-svetlé, čisté pozadie */
-    background-color: #fcfcfd;
+body {
+    min-height: 100vh;   /* Roztiahne pozadie na celú výšku obrazovky (mobilu/monitora). */
+    display: flex;       /* Zapne "inteligentné centrovanie". */
+    flex-direction: column; /* Povie, že veci (nadpis a formulár) majú byť pod sebou. */
+    justify-content: center; /* Daj všetko presne do stredu zhora nadol. */
+    align-items: center;     /* Daj všetko presne do stredu zľava doprava. */
+    gap: 40px;           /* Urob medzi nadpisom a formulárom 40-pixelovú medzeru. */
+    
+    /* TU SA ROBÍ TO PEKNÉ POZADIE */
+    background-color: #fcfcfd; /* Základná takmer-biela farba. */
     background-image: 
-        radial-gradient(at 10% 10%, rgba(59, 130, 246, 0.03) 0px, transparent 50%),
-        radial-gradient(at 90% 90%, rgba(168, 85, 247, 0.03) 0px, transparent 50%);
-    color: #0f172a;
-    overflow: hidden;
+        radial-gradient(at 10% 10%, rgba(59, 130, 246, 0.03) 0px, transparent 50%), /* Jemná modrá žiara vľavo hore. */
+        radial-gradient(at 90% 90%, rgba(168, 85, 247, 0.03) 0px, transparent 50%); /* Jemná fialová žiara vpravo dole. */
+    color: #0f172a;      /* Farba písma (tmavomodrá/sivá). */
+    overflow: hidden;    /* Skryje posuvníky (scrollbar), aby stránka nepôsobila rozbitá. */
 }
 
 h3 {
-    font-size: 56px;
-    font-weight: 700;
-    letter-spacing: -2px;
-    color: #0f172a;
-    text-align: center;
-    position: relative;
-    animation: titleAppear 0.8s ease-out;
+    font-size: 56px;     /* Nastaví obrovskú veľkosť nadpisu. */
+    font-weight: 700;    /* Písmo bude hrubé (tučné). */
+    letter-spacing: -2px; /* Písmená sú bližšie pri sebe (vyzerá to luxusnejšie). */
+    position: relative;  /* Pripraví nadpis na to, že pod neho niečo prilepíme. */
+    animation: titleAppear 0.8s ease-out; /* Spustí pohyb nadpisu pri zapnutí stránky. */
 }
 
-/* AI podčiarknutie */
+/* TÁTO ČASŤ ROBÍ TÚ FAREBNÚ ČIARKU POD NADPISOM */
 h3::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, #3b82f6, #a855f7);
-    border-radius: 2px;
+    content: '';         /* "Vytvor niečo prázdne." */
+    position: absolute;  /* Dovoľuje nám to presne umiestniť. */
+    bottom: -10px;       /* Daj to kúsok pod text. */
+    left: 50%;           /* Vycentruj to. */
+    transform: translateX(-50%); /* Presné doladenie na stred. */
+    width: 60px;         /* Šírka tej čiarky. */
+    height: 4px;         /* Hrúbka tej čiarky. */
+    background: linear-gradient(90deg, #3b82f6, #a855f7); /* Modro-fialová farba. */
+    border-radius: 2px;  /* Zaoblené konce tej čiarky. */
 }
 
 form {
-    width: 420px;
-    padding: 50px;
-    border-radius: 16px; /* Hranatejší, technickejší look */
-    background: #ffffff;
-    /* Veľmi jemný tieň, ktorý vyzerá ako levitácia */
+    width: 420px;        /* Nastaví pevnú šírku formulára. */
+    padding: 50px;       /* Urobí veľa miesta okolo obsahu vnútri formulára. */
+    border-radius: 16px; /* Zaoblí rohy celého boxu. */
+    background: #ffffff; /* Biely podklad formulára. */
+    /* TENTO TIEŇ ROBÍ EFEKT, ŽE FORMULÁR "LEVITUJE" NAD POZADÍM */
     box-shadow: 0 40px 80px -20px rgba(0,0,0,0.05);
-    border: 1px solid #f1f5f9;
+    border: 1px solid #f1f5f9; /* Takmer neviditeľný rámik. */
 
-    display: flex;
+    display: flex;       /* Aj vnútri formulára chceme veci pod sebou. */
     flex-direction: column;
-    gap: 24px;
-    animation: formAppear 1s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-}
-
-/* AI dekoračný prvok */
-form::before {
-  
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-family: monospace;
-    font-size: 10px;
-    color: #cbd5e1;
-    letter-spacing: 1px;
+    gap: 24px;           /* Medzery medzi políčkami na písanie. */
+    animation: formAppear 1s cubic-bezier(0.16, 1, 0.3, 1); /* Efekt "vyskočenia" celého boxu. */
 }
 
 input {
-    width: 100%;
-    padding: 16px 20px;
-    border: 1px solid #e2e8f0;
-    outline: none;
-    border-radius: 8px;
-    background: #ffffff;
-    color: #691d7a;
-    font-size: 15px;
-    font-weight: 400;
-    transition: all 0.2s ease;
+    width: 100%;         /* Políčko bude na celú šírku formulára. */
+    padding: 16px 20px;  /* Väčšie medzery vnútri políčka, aby sa lepšie písalo. */
+    border: 1px solid #e2e8f0; /* Jemný rámik políčka. */
+    outline: none;       /* Zruší ten škaredý modrý rámik, čo dáva Windows sám od seba. */
+    border-radius: 8px;  /* Zaoblené políčko. */
+    transition: all 0.2s ease; /* Zabezpečí, že zmeny farieb budú plynulé, nie trhané. */
 }
 
-input::placeholder {
-    color: #94a3b8;
-}
-
+/* EFEKT PRI KLIKNUTÍ DO POLÍČKA */
 input:focus {
-    background: #ffffff;
-    border-color: #8c3fd4; /* Fialový akcent pre AI */
-    box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1);
+    border-color: #8c3fd4; /* Rámik sa zmení na fialový. */
+    box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1); /* Okolo políčka sa objaví jemná žiara. */
 }
 
 button {
-    margin-top: 15px;
+    margin-top: 15px;    /* Trocha miesta nad tlačidlom. */
     padding: 16px;
-    border: none;
-    border-radius: 8px;
-    /* AI Gradient */
+    border: none;        /* Odstránime základný škaredý rámik tlačidla. */
+    border-radius: 8px;  /* Zaoblené tlačidlo. */
+    /* FAREBNÝ PRECHOD TLAČIDLA */
     background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
+    color: white;        /* Biely text na tlačidle. */
+    font-weight: 600;    /* Hrubšie písmo na tlačidle. */
+    cursor: pointer;     /* Zmení šípku myši na prst (aby človek vedel, že môže kliknúť). */
+    transition: all 0.3s ease; /* Plynulý efekt pri prejdení myšou. */
 }
 
+/* ČO SA STANE, KEĎ DÁŠ MYŠ NAD TLAČIDLO */
 button:hover {
-    box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
-    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4); /* Tieň pod tlačidlom zosilnie (vynikne). */
+    transform: translateY(-2px); /* Tlačidlo sa fyzicky trocha nadvihne. */
 }
 
+/* ČO SA STANE, KEĎ TLAČIDLO STLAČÍŠ */
 button:active {
-    transform: translateY(0px) scale(0.98);
+    transform: translateY(0px) scale(0.98); /* Tlačidlo sa trocha zmenší (ako skutočný gombík). */
 }
 
-/* Nové, zložitejšie animácie */
+/* 
+   ANIMÁCIA NADPISU: titleAppear 
+   Cieľ: Nadpis sa nemá len zjaviť, ale má "priletieť a rozbaliť sa".
+*/
 @keyframes titleAppear {
-    0% { opacity: 0; transform: translateY(-20px); letter-spacing: -10px; }
-    100% { opacity: 1; transform: translateY(0); letter-spacing: -2px; }
+    0% { opacity: 0; transform: translateY(-20px); letter-spacing: -10px; } /* Začni neviditeľný a stlačený. */
+    100% { opacity: 1; transform: translateY(0); letter-spacing: -2px; }     /* Skonči viditeľný a pekný. */
 }
 
 @keyframes formAppear {
-    0% { opacity: 0; transform: scale(0.95) translateY(30px); }
-    100% { opacity: 1; transform: scale(1) translateY(0); }
+    0% { opacity: 0; transform: scale(0.95) translateY(30px); } /* Začni malý a trocha nižšie. */
+    100% { opacity: 1; transform: scale(1) translateY(0); }     /* Skonči v plnej kráse. */
 }
 
-
+/* IKONA V ROHU */
 .ikona_v_rohu {
-    position: fixed;
-    bottom: 20px;
-    right: 60px; /* Toto nastaví základnú polohu pre Facebook */
-    width: 30px;
-    height: auto;
-    z-index: 1000;
+    position: fixed;     /* Pripne ikonu na jedno miesto, aj keby sa hýbala stránka. */
+    bottom: 20px;        /* Od spodku obrazovky 20px. */
+    right: 60px;         /* Od pravého okraja 60px. */
+    width: 30px;         /* Šírka ikony. */
+    z-index: 1000;       /* Zabezpečí, že ikona bude vždy "najvyššie" a nič ju neprekryje. */
 }
-
